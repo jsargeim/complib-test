@@ -1,0 +1,70 @@
+{
+    "name": "@inmoment/the-kitchen",
+    "version": "7.0.1",
+    "description": "Production ready React components",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "rm -rf dist && npm run copy && npm run copyprops && tsc -w",
+        "copy": "copyfiles -u 1 lib/**/*.css dist/",
+        "copyprops": "copyfiles -u 1 props/* dist/props/",
+        "build": "rm -rf dist && rollup -c && npm run copyprops",
+        "json": "node utils/writeFiles.js && npm run copyprops",
+        "angular": "node utils/angular.js",
+        "svg": "node utils/generateSVG.js",
+        "lint:fix": "eslint './lib/**/*.{.ts,tsx}'",
+        "local": "rm -rf dist && rollup -c -w && npm pack",
+        "test": "npm run json && npm run build",
+        "test:w": "jest --watch",
+        "jest": "npm run json && npm run local && rm *.tgz"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.inmoment.com/scm/grg/the-kitchen.git"
+    },
+    "author": "Jay Sargent",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/preset-env": "^7.6.3",
+        "@babel/preset-react": "^7.6.3",
+        "@testing-library/react": "^9.1.4",
+        "@types/jest": "^24.0.18",
+        "@types/react": "^16.9.2",
+        "@types/react-dom": "^16.9.0",
+        "@types/styled-components": "4.1.8",
+        "autoprefixer": "^9.6.1",
+        "clipboardy": "^2.1.0",
+        "copyfiles": "^2.1.1",
+        "jest": "^24.9.0",
+        "postcss-clean": "^1.1.0",
+        "rollup": "^1.20.3",
+        "rollup-plugin-alias": "^2.0.0",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-glslify": "^1.1.2",
+        "rollup-plugin-image-files": "^1.4.2",
+        "rollup-plugin-json": "^4.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-postcss": "^2.0.3",
+        "rollup-plugin-replace": "^2.2.0",
+        "rollup-plugin-shader": "0.0.3",
+        "rollup-plugin-terser": "^5.1.1",
+        "rollup-plugin-typescript2": "^0.24.0",
+        "ts-jest": "^24.1.0",
+        "typescript": "^3.3"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
+    },
+    "dependencies": {
+        "@types/node": "^12.7.5",
+        "@types/uuidv4": "^2.0.0",
+        "framer-motion": "^1.6.7",
+        "lottie-web": "^5.5.9",
+        "styled-components": "^4.3.2",
+        "uuidv4": "^5.0.1"
+    },
+    "files": [
+        "dist"
+    ]
+}
