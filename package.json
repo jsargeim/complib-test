@@ -1,6 +1,6 @@
 {
-    "name": "@inmoment/the-kitchen",
-    "version": "7.0.1",
+    "name": "@jsargeim/component-test-lib",
+    "version": "1.0.0",
     "description": "Production ready React components",
     "main": "dist/index.js",
     "scripts": {
